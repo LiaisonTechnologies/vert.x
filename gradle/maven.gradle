@@ -80,7 +80,7 @@ uploadArchives {
     mavenDeployer {
       configuration = configurations.archives
 
-      repository(url: "http://10.0.24.241:8000/nexus/content/repositories/releases/") {
+      repository(url: "http://10.0.24.241:8000/nexus/content/repositories/thirdparty/") {
         authentication(userName: sonatypeUsername, password: sonatypePassword)
       }
 
