@@ -376,7 +376,9 @@ public class TCPSSLHelper {
   }
 
   // Make sure SSLv3 is NOT enabled due to POODLE issue http://en.wikipedia.org/wiki/POODLE
-  private static final String[] ENABLED_PROTOCOLS = {"TLSv1.2"};
+  private static final String defaultProtocol = "TLSv1.2";
+  private static final String protocols = System.getProperty("https.protocols.server", defaultProtocol);
+  private static final String[] ENABLED_PROTOCOLS = protocols.split(", ");
 
   private SslHandler createHandler(SSLEngine engine, boolean client) {
     engine.setEnabledProtocols(ENABLED_PROTOCOLS);
